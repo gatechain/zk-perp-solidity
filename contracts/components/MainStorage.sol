@@ -4,7 +4,6 @@ pragma solidity 0.6.12;
 
 
 import "../perp/interfaces/VerifierRollupInterface.sol";
-import "../perp/interfaces/VerifierWithdrawInterface.sol";
 
 /**
  * @dev Interface poseidon hash function 2 elements
@@ -61,8 +60,8 @@ contract MainStorage {
     // Verifiers array
     VerifierRollup[] public rollupVerifiers;
 
-    // Withdraw verifier interface
-    VerifierWithdrawInterface public withdrawVerifier;
+    // @deprecated Withdraw verifier interface
+    address public withdrawVerifier;
 
     uint256 public genesisBlock;
 

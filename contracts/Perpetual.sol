@@ -23,7 +23,6 @@ contract Perpetual is Initializable, Ownable, Pausable, TokenTransfers, Deposits
     function init(address _owner, address _depositToken,
         address[] memory _verifiers,
         uint256[] memory _verifiersParams,
-        address _withdrawVerifier,
         address[] memory _poseidonElements
     ) external initializer {
         uint256 chainId;
@@ -37,14 +36,13 @@ contract Perpetual is Initializable, Ownable, Pausable, TokenTransfers, Deposits
         require(depositTokenDecimals <= 18, "decimals gt 18");
         depositToken = _depositToken;
 
-        initializePerp(_verifiers, _verifiersParams, _withdrawVerifier, _poseidonElements);
+        initializePerp(_verifiers, _verifiersParams, _poseidonElements);
     }
 
     function initPerp(address[] memory _verifiers,
         uint256[] memory _verifiersParams,
-        address _withdrawVerifier,
         address[] memory _poseidonElements) external onlyOwner {
-        initializePerp(_verifiers, _verifiersParams, _withdrawVerifier, _poseidonElements);
+        initializePerp(_verifiers, _verifiersParams, _poseidonElements);
     }
 
     function setOperator(address _operator) external onlyOwner {

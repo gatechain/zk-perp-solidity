@@ -3,7 +3,6 @@
 pragma solidity 0.6.12;
 
 import "./interfaces/VerifierRollupInterface.sol";
-import "./interfaces/VerifierWithdrawInterface.sol";
 import "./lib/PerpHelpers.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "../components/Pausable.sol";
@@ -14,17 +13,6 @@ contract Perp is PerpHelpers, Pausable {
 
     // bytes4(keccak256(bytes("transfer(address,uint256)")));
     bytes4 constant _TRANSFER_SIGNATURE = 0xa9059cbb;
-
-    // bytes4(keccak256(bytes("transferFrom(address,address,uint256)")));
-    bytes4 constant _TRANSFER_FROM_SIGNATURE = 0x23b872dd;
-
-    // bytes4(keccak256(bytes("approve(address,uint256)")));
-    bytes4 constant _APPROVE_SIGNATURE = 0x095ea7b3;
-
-    // ERC20 extensions:
-
-    // bytes4(keccak256(bytes("permit(address,address,uint256,uint256,uint8,bytes32,bytes32)")));
-    bytes4 constant _PERMIT_SIGNATURE = 0xd505accf;
 
     // Modulus zkSNARK
     uint256 constant _RFIELD = 21888242871839275222246405745257275088548364400416034343698204186575808495617;
@@ -62,13 +50,11 @@ contract Perp is PerpHelpers, Pausable {
     function initializePerp(
         address[] memory _verifiers,
         uint256[] memory _verifiersParams,
-        address _withdrawVerifier,
         address[] memory _poseidonElements
     ) internal {
 
         // set state variables
         _initializeVerifiers(_verifiers, _verifiersParams);
-        withdrawVerifier = VerifierWithdrawInterface(_withdrawVerifier);
 
         genesisBlock = block.number;
 
@@ -229,56 +215,6 @@ contract Perp is PerpHelpers, Pausable {
         emit LogWithdrawAlready(numExitRoot, idx, withdrawSerialNumbers[numExitRoot][idx]);
     }
 
-    /**
-     * @dev Withdraw to retrieve the tokens from the exit tree to the owner account
-     * Before this call an exit transaction must be done
-     * @param proofA zk-snark input
-     * @param proofB zk-snark input
-     * @param proofC zk-snark input
-     * @param amount Amount to retrieve
-     * @param numExitRoot Batch number where the exit transaction has been done
-     * @param idx Index of the exit tree account
-     * Events: `WithdrawEvent`
-     */
-    function withdrawCircuit(
-        uint256[2] calldata proofA,
-        uint256[2][2] calldata proofB,
-        uint256[2] calldata proofC,
-        uint192 amount,
-        uint32 numExitRoot,
-        uint48 idx
-    ) external whenNotPaused {
-        require(!blacklisted[msg.sender], "BLACKLIST_USER");
-        require(
-            exitNullifierMap[numExitRoot][idx] == false,
-            "Perp::withdrawCircuit: WITHDRAW_ALREADY_DONE"
-        );
-
-        // get exit root given its index depth
-        uint256 exitRoot = exitRootsMap[numExitRoot];
-
-        uint256 input = uint256(
-            sha256(abi.encodePacked(exitRoot, msg.sender, amount, idx))
-        ) % _RFIELD;
-        // verify zk-snark circuit
-        require(
-            withdrawVerifier.verifyProof(proofA, proofB, proofC, [input]) ==
-                true,
-            "Perp::withdrawCircuit: INVALID_ZK_PROOF"
-        );
-
-        // set nullifier
-        exitNullifierMap[numExitRoot][idx] = true;
-
-        _withdrawFunds(amount);
-
-        emit WithdrawEvent(idx, numExitRoot);
-        emit LogWithdrawAlready(numExitRoot, idx, withdrawSerialNumbers[numExitRoot][idx]);
-    }
-
-    //////////////
-    // Governance methods
-    /////////////
     //////////////
     // Viewers
     /////////////
@@ -396,13 +332,13 @@ contract Perp is PerpHelpers, Pausable {
                         }
                         if (amount != 0) {
                             uint _amount = amount / (10 ** (18-uint(depositTokenDecimals)));
-                            /*require(
+                            require(
                                 pendingDeposits[user][depositToken] >= _amount,
                                 "DEPOSIT_INSUFFICIENT"
                             );
 
                             // Subtract accepted quantized amount.
-                            pendingDeposits[user][depositToken] -= _amount;*/
+                            pendingDeposits[user][depositToken] -= _amount;
                             emit LogDepositAccepted(
                                 user,
                                 _amount,

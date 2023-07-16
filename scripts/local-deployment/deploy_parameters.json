@@ -1,0 +1,47 @@
+{
+  "hardhatNetwork": "localhostMnemonic",
+  "test": true,
+  "mnemonic": "explain tackle mirror kit van hammer degree position ginger unfair soup bonus",
+  "85": {
+    "genesisBlock": "",
+    "maxTxVerifier": [
+      8, 400, 2048
+    ],
+    "nLevelsVerifer": [
+      48, 32, 32
+    ],
+    "verifierType": [
+      "real", "real", "real"
+    ],
+    "depositTokenAddress": "0xb90952cF803E931654d1b8F71b64B356e0833c32",
+    "libVerifiersAddress": ["0x8F5b6aBe5F9C470DbF9176d0a480d668f3e4B201","0x49D00B9B0f881d065199Ed703a976826d56d8103","0xA58761Cd9bFd5045c83275437F8F537Fd56E1138"],
+    "libPoseidonsAddress": ["0x4aB22f148E78eE71f4e1fCD87A4F2B479992FC78","0xd2b82A934299DE226F4b142e77D746A5aFB27e56","0xd1F0D3242ac76C75cB3168D9d0C2Dd17e37FA673","0xcB4Dc7D59dd5aCf5DfcAd1104bfD7E1Ee468eb11"]
+  },
+  "86": {
+    "maxTxVerifier": [
+      8, 400, 2048
+    ],
+    "nLevelsVerifer": [
+      48, 32, 32
+    ],
+    "verifierType": [
+      "real", "real", "real"
+    ]
+  },
+  "1337": {
+    "genesisBlock": "",
+    "maxTxVerifier": [
+      8, 400, 2048
+    ],
+    "nLevelsVerifer": [
+      48, 32, 32
+    ],
+    "verifierType": [
+      "real", "real", "real"
+    ],
+    "depositTokenAddress": "0x57Ee9C79dabB769dF0A3616b7b30B2c2D8Ba94c1",
+    "libVerifiersAddress": ["0xa7D47b82F7A90bed25949A9161619e49DF06dB31","0x38570AcB1dF3423A73B8933E03Ba033650932fF4","0x347755273c0711Ce5051A969662f1B864044e668"],
+    "libPoseidonsAddress": ["0xde631D068eD4532d2C64b1bB94b006d95c41B434","0xb97FA9279A322dcBE3d4137d7D27d8b151c2bB01","0x4D64C384aA12007bcf7B0f947840aD92e5D6C2ae","0x12Bd90e5DB62a7eC3E567ccA4a55814e6Df11379"]
+  },
+  "pathOutputJson": ""
+}

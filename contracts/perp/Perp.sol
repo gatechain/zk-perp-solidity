@@ -136,7 +136,8 @@ contract Perp is PerpHelpers, Pausable {
         // update state
         lastForgedBatch++;
         createNewAccounts();
-        for(uint i; i < serialNums.length; i++) {
+        uint sLen = serialNums.length;
+        for(uint i; i < sLen; i++) {
             require(!allSerialNumbers[serialNums[i]], "repeated serial numbers");
             allSerialNumbers[serialNums[i]] = true;
         }
@@ -288,7 +289,7 @@ contract Perp is PerpHelpers, Pausable {
                     }
                     if (fromIdx == 0 && toIdx != 0) {
                         {
-                            bool found = false;
+                            bool found;
                             for (uint k; k < l; k++) {
                                 if (toIdx == toIdxs[k]) {
                                     found = true;

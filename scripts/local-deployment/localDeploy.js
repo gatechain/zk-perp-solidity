@@ -18,9 +18,6 @@ const {
 const maxTxVerifierDefault = [8, 400, 2048];
 const nLevelsVeriferDefault = [32, 32, 32];
 const verifierTypeDefault = ["real","real", "real"];
-const tokenInitialAmount = ethers.BigNumber.from(
-  "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
-);
 
 async function main() {
   // compìle contracts
@@ -155,13 +152,6 @@ async function main() {
   }
 
   // initialize upgradable smart contracts
-
-  let genesisBlock = deployParameters[chainId].genesisBlock;
-  if (genesisBlock == "") {
-    genesisBlock =
-    (await ethers.provider.getBlockNumber()) +
-    parseInt(deployParameters[chainId].genesisBlockOffsetCurrent);
-  }
 
   // initialize Perpetual
 

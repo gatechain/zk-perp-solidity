@@ -86,15 +86,13 @@ contract Perp is PerpHelpers, Pausable {
      * If the proof is succesfully verified, update the current state, adding a new state and exit root.
      * In order to optimize the gas consumption the parameter `l1L2TxsData`
      * is read directly from the calldata using assembly with the instruction `calldatacopy`
-     * @param newStRoot New state root
-     * @param newExitRoot New exit root
+     * @param newRoots [New state root,New exit root]
      * @param verifierIdx Verifier index
      * @param proof zk-snark input
      * Events: `ForgeBatch`
      */
     function forgeBatch(
-        uint256 newStRoot,
-        uint256 newExitRoot,
+        uint256[2] calldata newRoots,
         bytes calldata txsData,
         bytes calldata newOrders,
         bytes calldata newAccounts,
@@ -115,8 +113,8 @@ contract Perp is PerpHelpers, Pausable {
 
         // calculate input
         uint256 input = _constructCircuitInput(
-            newStRoot,
-            newExitRoot,
+            newRoots[0],
+            newRoots[1],
             verifierIdx
         );
 
@@ -142,8 +140,8 @@ contract Perp is PerpHelpers, Pausable {
             allSerialNumbers[serialNums[i]] = true;
         }
         acceptDeposits(lastForgedBatch, serialNums);
-        stateRootMap[lastForgedBatch] = newStRoot;
-        exitRootsMap[lastForgedBatch] = newExitRoot;
+        stateRootMap[lastForgedBatch] = newRoots[0];
+        exitRootsMap[lastForgedBatch] = newRoots[1];
         l1L2TxsDataHashMap[lastForgedBatch] = sha256(txsData);
 
         emit ForgeBatch(lastForgedBatch);

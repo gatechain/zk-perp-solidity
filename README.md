@@ -41,6 +41,8 @@
 
 ### Run tests
 1. Install foundry: `https://book.getfoundry.sh/getting-started/installation`
-2. Install dependencies: `forge install foundry-rs/forge-std  --no-git`
-3. Run tests: `forge test`
+2. Install dependencies:
+   1. `forge install foundry-rs/forge-std  --no-git`
+   2. `npm install`
+4. Run tests: `forge test`
 

@@ -46,3 +46,22 @@
    2. `npm install`
 4. Run tests: `forge test`
 
+## Audit Details
+- Files Requiring Audit
+  - contracts/Perpetual.sol
+  - contracts/interactions/TokenAssetData.sol
+  - contracts/interactions/Deposits.sol
+  - contracts/interfaces/MTokenTransfers.sol
+  - contracts/components/TokenTransfers.sol
+  - contracts/components/MainStorage.sol
+  - contracts/perp/Perp.sol
+  - contracts/perp/interfaces/VerifierRollupInterface.sol
+  - contracts/perp/lib/PerpHelpers.sol
+- Files Exempt from Audit
+  - contracts/libraries/Common.sol
+  - contracts/upgradability/Timelock.sol
+  - contracts/PerpetualProxy.sol
+  - contracts/perp/test/VerifierRollupHelper.sol
+  - contracts/components/Initializable.sol
+  - contracts/components/Ownable.sol
+  - contracts/components/Pausable.sol

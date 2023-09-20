@@ -51,10 +51,6 @@ contract Perpetual is Initializable, Ownable, Pausable, TokenTransfers, Deposits
         emit NewOperator(_operator);
     }
 
-    function toggleProofVerify() external onlyOwner {
-        enableProof = !enableProof;
-    }
-
     function updateVerifier(uint idx, address verifier, uint maxTx, uint nLevels) external onlyOwner {
         rollupVerifiers[idx] = VerifierRollup({
         verifierInterface: VerifierRollupInterface(verifier),

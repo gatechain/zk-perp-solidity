@@ -119,17 +119,15 @@ contract Perp is PerpHelpers, Pausable {
         );
 
         // verify proof
-        if (enableProof) {
-            require(
-                rollupVerifiers[verifierIdx].verifierInterface.verifyProof(
-                    [proof[0], proof[1]],
-                    [[proof[2], proof[3]],[proof[4], proof[5]]],
-                    [proof[6], proof[7]],
-                    [input]
-                ),
-                "Perp::forgeBatch: INVALID_PROOF"
-            );
-        }
+        require(
+            rollupVerifiers[verifierIdx].verifierInterface.verifyProof(
+                [proof[0], proof[1]],
+                [[proof[2], proof[3]],[proof[4], proof[5]]],
+                [proof[6], proof[7]],
+                [input]
+            ),
+            "Perp::forgeBatch: INVALID_PROOF"
+        );
 
         // update state
         lastForgedBatch++;

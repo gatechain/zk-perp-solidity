@@ -28,7 +28,7 @@
       "real", "real", "real"
     ]
   },
-  "1337": {
+  "31337": {
     "genesisBlock": "",
     "maxTxVerifier": [
       8, 400, 2048

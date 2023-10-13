@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0
 
-pragma solidity 0.6.12;
+pragma solidity >=0.8.20;
 
 import "../interfaces/MTokenTransfers.sol";
 import "../components/MainStorage.sol";

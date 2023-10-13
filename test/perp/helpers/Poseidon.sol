@@ -1,4 +1,4 @@
-pragma solidity 0.6.12;
+pragma solidity >=0.8.20;
 
 contract Poseidon {
     // get from blockchain by eth_getCode

@@ -76,7 +76,6 @@ async function main() {
   let nLevelsVerifer = deployParameters[chainId].nLevelsVerifer || nLevelsVeriferDefault;
   // console.log(calculateInputMaxTxLevels(maxTxVerifier, nLevelsVerifer))
 
-
   // Deploy smart contacts:
 
   // deploy smart contracts with proxy https://github.com/OpenZeppelin/openzeppelin-upgrades/blob/master/packages/plugin-hardhat/test/initializers.js
@@ -88,7 +87,7 @@ async function main() {
     initializer: undefined,
   });
   await perp.deployed();
-
+  console.log(34433);
   console.log("perp deployed at: ", perp.address);
 
   // load or deploy libs
@@ -162,7 +161,7 @@ async function main() {
     calculateInputMaxTxLevels(maxTxVerifier, nLevelsVerifer),
     libposeidonsAddress,
   );
-
+console.log(2243422);
   await perp.setOperator(await deployer.getAddress())
   await perp.setInsAccId(13084334)
   await perp.setFeeAccId(13084326)

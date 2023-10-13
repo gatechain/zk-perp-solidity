@@ -17,6 +17,7 @@ module.exports = {
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {
+      chainId: 85,
       blockGasLimit: 12500000,
       allowUnlimitedContractSize: true,
     },
@@ -83,7 +84,10 @@ module.exports = {
         count: 20,
       },
     },
-  },
+    Meteora: {
+      url: "https://meteora-evm.gatenode.cc",
+      accounts:[process.env.PRIVATE_KEY,process.env.PRIVATE_KEY]
+  }},
   etherscan: {
     // The url for the Etherscan API you want to use.
     // For example, here we're using the one for the Ropsten test network
@@ -93,7 +97,7 @@ module.exports = {
     apiKey: process.env.ETHERSCAN_API_KEY,
   },
   solidity: {
-    version: "0.6.12",
+    version: "0.8.20",
     settings: {
       optimizer: {
         enabled: true, // Default: false

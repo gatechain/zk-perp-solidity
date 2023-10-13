@@ -1,0 +1,432 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0xF167a516808d8a4fE1A6880E67D2F6c6a828ABC1",
+    "txHash": "0xf130cba64cd9d6257d9ce8155e786a26bc0c9e1b129d501083dfd7595e9eed02"
+  },
+  "proxies": [
+    {
+      "address": "0xC643A0C88b3F48153cE3F8ce7D36eBd1AE441a3A",
+      "txHash": "0xab3f8f123e0aceb253aa27d16fb39ee20d7404e031d3ebabd6314155e5289684",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "04ce6752687a3aa5bdf7928b83278de8007db62676b8c720498eeafc1099012b": {
+      "address": "0x961cf2711c4B5Efd8580D030F17557F69CBf7f78",
+      "txHash": "0x17e6eda646e61c6d47f9b7f051039be2de72718266342dea7f0240db45bc5a45",
+      "layout": {
+        "solcVersion": "0.8.20",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:40"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:41"
+          },
+          {
+            "label": "_owner",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_address",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:42"
+          },
+          {
+            "label": "_chainId",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:43"
+          },
+          {
+            "label": "depositNonce",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:44"
+          },
+          {
+            "label": "withdrawNonces",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_mapping(t_uint256,t_bool)",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:45"
+          },
+          {
+            "label": "pendingDeposits",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:46"
+          },
+          {
+            "label": "cancellationRequests",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:47"
+          },
+          {
+            "label": "pendingWithdrawals",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:48"
+          },
+          {
+            "label": "pendingWithdrawalTotal",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:49"
+          },
+          {
+            "label": "supportedTokens",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:50"
+          },
+          {
+            "label": "_paused",
+            "offset": 0,
+            "slot": "9",
+            "type": "t_bool",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:51"
+          },
+          {
+            "label": "depositToken",
+            "offset": 1,
+            "slot": "9",
+            "type": "t_address",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:53"
+          },
+          {
+            "label": "depositTokenDecimals",
+            "offset": 21,
+            "slot": "9",
+            "type": "t_uint8",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:54"
+          },
+          {
+            "label": "_insPoseidonUnit2",
+            "offset": 0,
+            "slot": "10",
+            "type": "t_contract(PoseidonUnit2)2287",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:55"
+          },
+          {
+            "label": "_insPoseidonUnit3",
+            "offset": 0,
+            "slot": "11",
+            "type": "t_contract(PoseidonUnit3)2299",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:56"
+          },
+          {
+            "label": "_insPoseidonUnit4",
+            "offset": 0,
+            "slot": "12",
+            "type": "t_contract(PoseidonUnit4)2311",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:57"
+          },
+          {
+            "label": "_insPoseidonUnit5",
+            "offset": 0,
+            "slot": "13",
+            "type": "t_contract(PoseidonUnit5)2322",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:58"
+          },
+          {
+            "label": "rollupVerifiers",
+            "offset": 0,
+            "slot": "14",
+            "type": "t_array(t_struct(VerifierRollup)2330_storage)dyn_storage",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:61"
+          },
+          {
+            "label": "withdrawVerifier",
+            "offset": 0,
+            "slot": "15",
+            "type": "t_address",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:64"
+          },
+          {
+            "label": "genesisBlock",
+            "offset": 0,
+            "slot": "16",
+            "type": "t_uint256",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:66"
+          },
+          {
+            "label": "lastForgedBatch",
+            "offset": 0,
+            "slot": "17",
+            "type": "t_uint32",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:69"
+          },
+          {
+            "label": "stateRootMap",
+            "offset": 0,
+            "slot": "18",
+            "type": "t_mapping(t_uint32,t_uint256)",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:72"
+          },
+          {
+            "label": "exitRootsMap",
+            "offset": 0,
+            "slot": "19",
+            "type": "t_mapping(t_uint32,t_uint256)",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:75"
+          },
+          {
+            "label": "l1L2TxsDataHashMap",
+            "offset": 0,
+            "slot": "20",
+            "type": "t_mapping(t_uint32,t_bytes32)",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:78"
+          },
+          {
+            "label": "exitNullifierMap",
+            "offset": 0,
+            "slot": "21",
+            "type": "t_mapping(t_uint32,t_mapping(t_uint48,t_bool))",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:82"
+          },
+          {
+            "label": "idxMap",
+            "offset": 0,
+            "slot": "22",
+            "type": "t_mapping(t_uint48,t_address)",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:84"
+          },
+          {
+            "label": "enableProof",
+            "offset": 0,
+            "slot": "23",
+            "type": "t_bool",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:86"
+          },
+          {
+            "label": "operator",
+            "offset": 1,
+            "slot": "23",
+            "type": "t_address",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:88"
+          },
+          {
+            "label": "insAccId",
+            "offset": 21,
+            "slot": "23",
+            "type": "t_uint48",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:90"
+          },
+          {
+            "label": "feeAccId",
+            "offset": 0,
+            "slot": "24",
+            "type": "t_uint48",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:92"
+          },
+          {
+            "label": "oldUsers",
+            "offset": 0,
+            "slot": "25",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:94"
+          },
+          {
+            "label": "blacklisted",
+            "offset": 0,
+            "slot": "26",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:96"
+          },
+          {
+            "label": "withdrawSerialNumbers",
+            "offset": 0,
+            "slot": "27",
+            "type": "t_mapping(t_uint32,t_mapping(t_uint48,t_array(t_uint256)dyn_storage))",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:98"
+          },
+          {
+            "label": "allSerialNumbers",
+            "offset": 0,
+            "slot": "28",
+            "type": "t_mapping(t_uint256,t_bool)",
+            "contract": "MainStorage",
+            "src": "contracts/components/MainStorage.sol:100"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_struct(VerifierRollup)2330_storage)dyn_storage": {
+            "label": "struct VerifierRollup[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]",
+            "numberOfBytes": "32"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_bytes32": {
+            "label": "bytes32",
+            "numberOfBytes": "32"
+          },
+          "t_contract(PoseidonUnit2)2287": {
+            "label": "contract PoseidonUnit2",
+            "numberOfBytes": "20"
+          },
+          "t_contract(PoseidonUnit3)2299": {
+            "label": "contract PoseidonUnit3",
+            "numberOfBytes": "20"
+          },
+          "t_contract(PoseidonUnit4)2311": {
+            "label": "contract PoseidonUnit4",
+            "numberOfBytes": "20"
+          },
+          "t_contract(PoseidonUnit5)2322": {
+            "label": "contract PoseidonUnit5",
+            "numberOfBytes": "20"
+          },
+          "t_contract(VerifierRollupInterface)4027": {
+            "label": "contract VerifierRollupInterface",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_bool)": {
+            "label": "mapping(uint256 => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint32,t_bytes32)": {
+            "label": "mapping(uint32 => bytes32)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint32,t_mapping(t_uint48,t_array(t_uint256)dyn_storage))": {
+            "label": "mapping(uint32 => mapping(uint48 => uint256[]))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint32,t_mapping(t_uint48,t_bool))": {
+            "label": "mapping(uint32 => mapping(uint48 => bool))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint32,t_uint256)": {
+            "label": "mapping(uint32 => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint48,t_address)": {
+            "label": "mapping(uint48 => address)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint48,t_array(t_uint256)dyn_storage)": {
+            "label": "mapping(uint48 => uint256[])",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint48,t_bool)": {
+            "label": "mapping(uint48 => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(VerifierRollup)2330_storage": {
+            "label": "struct VerifierRollup",
+            "members": [
+              {
+                "label": "verifierInterface",
+                "type": "t_contract(VerifierRollupInterface)4027",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "maxTx",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "nLevels",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint32": {
+            "label": "uint32",
+            "numberOfBytes": "4"
+          },
+          "t_uint48": {
+            "label": "uint48",
+            "numberOfBytes": "6"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    }
+  }
+}

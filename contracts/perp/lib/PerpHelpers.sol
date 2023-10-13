@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0
 
-pragma solidity 0.6.12;
+pragma solidity >=0.8.20;
 
 import "../../components/MainStorage.sol";
 
@@ -130,7 +130,7 @@ contract PerpHelpers is MainStorage {
         uint256 siblingTmp;
         for (int256 i = int256(siblings.length) - 1; i >= 0; i--) {
             siblingTmp = siblings[uint256(i)];
-            bool leftRight = (uint8(key >> i) & 0x01) == 1;
+            bool leftRight = (uint8(key >> uint256(i)) & 0x01) == 1;
             nextHash = leftRight
                 ? _hashNode(siblingTmp, nextHash)
                 : _hashNode(nextHash, siblingTmp);
@@ -161,7 +161,7 @@ contract PerpHelpers is MainStorage {
         stateArray[0] |= (ay >> 255) << (120);
         stateArray[0] |= balanceSign << 128;
         stateArray[1] = (ay << 1) >> 1; // last bit set to 0
-        stateArray[2] = uint256(ethAddress);
+        stateArray[2] = uint256(uint160(ethAddress));
         stateArray[3] = ordersRoot;
         stateArray[4] = positionsRoot;
 

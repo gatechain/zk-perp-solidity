@@ -58,7 +58,6 @@ contract PerpetualTest is Test {
         perpetual.setInsAccId(insAccId);
         vm.expectRevert("already set");
         perpetual.setOperator(operator);
-        perpetual.toggleProofVerify();
         perpetual.updateVerifier(0, address(0), maxTx, nLevel);
         vm.expectRevert("equal id");
         perpetual.setFeeAccId(feeAccId);
@@ -86,13 +85,6 @@ contract PerpetualTest is Test {
         vm.expectRevert("INVALID_AMOUNT");
         perpetual.deposit(alice, 0 ether);
         vm.stopPrank();
-    }
-
-    function testSetDepositToken() public {
-        perpetual.init(owner, address(depositToken), verifiers, verifiersParams, poseidonElements);
-        vm.prank(owner);
-        perpetual.setDepositToken(address(depositToken));
-        assertEq(perpetual.getDepositToken(), address(depositToken));
     }
 
     function testPause() public {

@@ -162,6 +162,24 @@ contract Perp is PerpHelpers, Pausable {
         return (arrayState, stateHash);
     }
 
+    function verify(uint192 amount,
+        uint256 babyPubKey,
+        address user,
+        uint256[] memory siblings,
+        uint48 idx,
+        uint256 exitRoot) public view returns (bool) {
+        uint256[5] memory arrayState = _buildTreeState(
+            amount,
+            0,
+            babyPubKey,
+            user,
+            0,
+            0
+        );
+        uint256 stateHash = _hash5Elements(arrayState);
+        return _smtVerifier(exitRoot, siblings, idx, stateHash);
+    }
+
     /**
      * @dev Withdraw to retrieve the tokens from the exit tree to the owner account
      * Before this call an exit transaction must be done
